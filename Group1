@@ -1,0 +1,8 @@
+pkg1
+pkg2
+pkg3
+pkg4
+pkg5
+pkg6
+PREFIX:pkg7:extra-option
+PREFIX:pkg8:extra-option

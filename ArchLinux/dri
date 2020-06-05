@@ -1,0 +1,26 @@
+#!/bin/sh
+
+useage() {
+        echo "dri \"[GROUP...GROUP...]\" [REQUIREMENT DIR]\
+                (Quotes are important)"
+        exit "$1"
+}
+
+[ "$1" = '-h' ] && useage 0
+[ -z "$1" ] && useage 1
+[ -z "$2" ] && useage 1
+
+DOT_REQ="$2/ArchLinux"
+ALL="$(echo "$1" | tr ' ' '\n' | xargs -Ipkg cat "$DOT_REQ/pkg")"
+
+# pacman
+echo "$ALL" | grep -v -e '^.*:.*' | \
+        tr '\r\n' ' ' | xargs -0 -I{} ./install.sh {}
+
+# yay
+echo "$ALL" | grep -e '^AUR:' | tr -d 'AUR:' | \
+        tr '\r\n' ' ' | xargs -0 -I{} ./install-aur.sh {}
+
+# pip
+echo "$ALL" | grep -e '^PIP:' | tr -d 'PIP:' | \
+        tr '\r\n' ' ' | xargs -0 -I{} ./install-pip.sh {}
