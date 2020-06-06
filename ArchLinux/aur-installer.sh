@@ -4,5 +4,5 @@
 PWD="$(pwd)"
 cd /tmp
 git clone 'https://aur.archlinux.org/yay.git' && cd yay
-makepkg -si && cd /tmp && rm -rf yay
+makepkg --noconfirm -si && cd /tmp && rm -rf yay
 cd "$PWD"

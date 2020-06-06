@@ -1,2 +1,2 @@
-command -v yay >/dev/null  || ./yay-installer.sh
+command -v yay >/dev/null  || ./aur-installer.sh
 yay --noconfirm --needed -Syu $@
