@@ -129,7 +129,7 @@ This must install pkg1, pkg2, pkg3 if failed then a non zero code must be return
 ### `install-<prefix>.sh`
 
 * <b>Input:</b> Takes space separated arguments (can be more than just package name,
-but must be specied in Group file.
+but must be specified in Group file.
 * <b>Output:</b> #not important
 
 Example: In line 7 of the group file option `pkg7:extra-option` will be passed as
